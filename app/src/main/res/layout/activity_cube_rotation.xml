@@ -18,11 +18,10 @@
         android:layout_centerHorizontal="true"
         android:weightSum="1">
 
-        <Button
-            android:text="Button"
+        <com.stanislavmikheyev.canvascuberotation.CubeRotationView
             android:layout_width="match_parent"
+            android:minHeight="500dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
             android:layout_weight="1" />
 
         <LinearLayout
