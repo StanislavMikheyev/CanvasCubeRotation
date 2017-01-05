@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.stanislavmikheyev.canvascuberotation.util.CubeRotationView;
-
 public class CubeRotationActivity extends AppCompatActivity {
 
     private CubeRotationView cubeRotationView;

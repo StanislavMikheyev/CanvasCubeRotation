@@ -19,7 +19,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <com.stanislavmikheyev.canvascuberotation.util.CubeRotationView
+        <com.stanislavmikheyev.canvascuberotation.CubeRotationView
             android:layout_width="match_parent"
             android:minHeight="500dp"
             android:layout_height="wrap_content"

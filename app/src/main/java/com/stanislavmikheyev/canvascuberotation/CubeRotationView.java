@@ -1,4 +1,4 @@
-package com.stanislavmikheyev.canvascuberotation.util;
+package com.stanislavmikheyev.canvascuberotation;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,6 +6,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.stanislavmikheyev.canvascuberotation.util.MeshGenerator;
+import com.stanislavmikheyev.canvascuberotation.util.Transformation;
 
 public class CubeRotationView extends View {
 
