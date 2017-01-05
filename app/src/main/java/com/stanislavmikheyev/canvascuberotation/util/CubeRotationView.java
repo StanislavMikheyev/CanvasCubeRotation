@@ -71,13 +71,15 @@ public class CubeRotationView extends View {
         paint.setStrokeWidth(3);
 
         transformation.setUniversalScale(150);
-        transformation.setXPosition(300);
-        transformation.setYPosition(300);
+        transformation.setXPosition(200);
+        transformation.setYPosition(200);
         transformation.setXRotation(xRotation);
         transformation.setYRotation(yRotation);
         transformation.setZRotation(zRotation);
 
-        for (float[] edge : transformation.applyTransformation(cubeMesh)) {
+        float[][] transformedMesh = transformation.applyTransformation(cubeMesh);
+
+        for (float[] edge : transformedMesh) {
             canvas.drawLine(
                     edge[0], edge[1],
                     edge[3], edge[4],

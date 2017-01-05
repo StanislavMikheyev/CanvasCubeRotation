@@ -122,7 +122,7 @@ public class Transformation {
 
         float[][] rotationMatrix = new float[3][3];
 
-        rotationMatrix[0][0] = cosX * cosZ;
+        rotationMatrix[0][0] = cosY * cosZ;
         rotationMatrix[0][1] = -cosY * sinZ;
         rotationMatrix[0][2] = sinY;
         rotationMatrix[1][0] = cosX * sinZ + sinX * sinY * cosZ;
@@ -135,7 +135,7 @@ public class Transformation {
         return rotationMatrix;
     }
 
-    private float[] applyRotationMatrixToEdge(float[] edge) {
+    private float[] applyRotation(float[] edge) {
         float[][] rm = calculateRotationMatrix();
 
         float[] rotatedEdge = new float[6];
@@ -151,32 +151,42 @@ public class Transformation {
         return rotatedEdge;
     }
 
+    private float[] applyScale(float[] edge) {
+        float[] scaledEdge = new float[6];
+
+        scaledEdge[0] = edge[0] * xScale;
+        scaledEdge[1] = edge[1] * yScale;
+        scaledEdge[2] = edge[2] * zScale;
+        scaledEdge[3] = edge[3] * xScale;
+        scaledEdge[4] = edge[4] * yScale;
+        scaledEdge[5] = edge[5] * zScale;
+
+        return scaledEdge;
+    }
+
+    private float[] applyTranslation(float[] edge) {
+        float[] translatedEdge = new float[6];
+
+        translatedEdge[0] = edge[0] + xPosition;
+        translatedEdge[1] = edge[1] + yPosition;
+        translatedEdge[2] = edge[2] + zPosition;
+        translatedEdge[3] = edge[3] + xPosition;
+        translatedEdge[4] = edge[4] + yPosition;
+        translatedEdge[5] = edge[5] + zPosition;
+
+        return translatedEdge;
+    }
+
     public float[][] applyTransformation(float[][] mesh) {
 
         float[][] transformedMesh = new float[mesh.length][];
 
         for (int i = 0; i < mesh.length; i++) {
-
+            //Apply transformations
             transformedMesh[i] = mesh[i];
-
-            //Rotation
-            transformedMesh[i] = applyRotationMatrixToEdge(transformedMesh[i]);
-
-            //Scaling
-            transformedMesh[i][0] *= xScale;
-            transformedMesh[i][1] *= yScale;
-            transformedMesh[i][2] *= zScale;
-            transformedMesh[i][3] *= xScale;
-            transformedMesh[i][4] *= yScale;
-            transformedMesh[i][5] *= zScale;
-
-            //Translation
-            transformedMesh[i][0] += xPosition;
-            transformedMesh[i][1] += yPosition;
-            transformedMesh[i][2] += zPosition;
-            transformedMesh[i][3] += xPosition;
-            transformedMesh[i][4] += yPosition;
-            transformedMesh[i][5] += zPosition;
+            transformedMesh[i] = applyRotation(transformedMesh[i]);
+            transformedMesh[i] = applyScale(transformedMesh[i]);
+            transformedMesh[i] = applyTranslation(transformedMesh[i]);
         }
         return transformedMesh;
     }

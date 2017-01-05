@@ -35,17 +35,17 @@ public class CubeRotationActivity extends AppCompatActivity {
     }
 
     public void xMinusClickListener(View view) {
-        cubeRotationView.setXRotation(cubeRotationView.getXRotation() + rotationStep);
+        cubeRotationView.setXRotation(cubeRotationView.getXRotation() - rotationStep);
         cubeRotationView.invalidate();
     }
 
     public void zMinusClickListener(View view) {
-        cubeRotationView.setZRotation(cubeRotationView.getZRotation() + rotationStep);
+        cubeRotationView.setZRotation(cubeRotationView.getZRotation() - rotationStep);
         cubeRotationView.invalidate();
     }
 
     public void yMinusClickListener(View view) {
-        cubeRotationView.setYRotation(cubeRotationView.getYRotation() + rotationStep);
+        cubeRotationView.setYRotation(cubeRotationView.getYRotation() - rotationStep);
         cubeRotationView.invalidate();
     }
 }
