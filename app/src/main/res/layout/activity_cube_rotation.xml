@@ -14,15 +14,17 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <com.stanislavmikheyev.canvascuberotation.util.CubeRotationView
             android:layout_width="match_parent"
             android:minHeight="500dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:id="@+id/cubeRotation" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -39,7 +41,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/button_z_plus"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="zPlusClickListener" />
 
             <Button
                 android:text="X+"
@@ -48,7 +51,8 @@
                 android:id="@+id/button_x_plus"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="xPlusClickListener" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -63,7 +67,8 @@
                     android:id="@+id/button_y_minus"
                     android:layout_below="@+id/button_x_plus"
                     android:layout_toRightOf="@+id/button_x_plus"
-                    android:layout_toEndOf="@+id/button_x_plus" />
+                    android:layout_toEndOf="@+id/button_x_plus"
+                    android:onClick="yMinusClickListener" />
 
                 <Button
                     android:text="Y+"
@@ -72,7 +77,8 @@
                     android:id="@+id/button_y_plus"
                     android:layout_below="@+id/button_x_plus"
                     android:layout_toLeftOf="@+id/button_x_plus"
-                    android:layout_toStartOf="@+id/button_x_plus" />
+                    android:layout_toStartOf="@+id/button_x_plus"
+                    android:onClick="yPlusClickListener" />
             </LinearLayout>
 
             <Button
@@ -83,7 +89,8 @@
                 android:layout_below="@+id/button_y_minus"
                 android:layout_toLeftOf="@+id/button_y_minus"
                 android:layout_toStartOf="@+id/button_y_minus"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="xMinusClickListener" />
 
             <Button
                 android:text="Z-"
@@ -93,7 +100,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/button_z_minus"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="zMinusClickListener" />
 
         </LinearLayout>
 

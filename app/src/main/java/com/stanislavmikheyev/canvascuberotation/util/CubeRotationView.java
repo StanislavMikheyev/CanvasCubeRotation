@@ -13,6 +13,34 @@ public class CubeRotationView extends View {
     private float[][] cubeMesh = MeshGenerator.getCubeMesh();
     private Transformation transformation = new Transformation();
 
+    private float xRotation = 0;
+    private float yRotation = 0;
+    private float zRotation = 0;
+
+    public float getXRotation() {
+        return xRotation;
+    }
+
+    public void setXRotation(float xRotation) {
+        this.xRotation = xRotation;
+    }
+
+    public float getYRotation() {
+        return yRotation;
+    }
+
+    public void setYRotation(float yRotation) {
+        this.yRotation = yRotation;
+    }
+
+    public float getZRotation() {
+        return zRotation;
+    }
+
+    public void setZRotation(float zRotation) {
+        this.zRotation = zRotation;
+    }
+
     public CubeRotationView(Context context) {
         super(context);
         init(null, 0);
@@ -43,11 +71,11 @@ public class CubeRotationView extends View {
         paint.setStrokeWidth(3);
 
         transformation.setUniversalScale(150);
-        transformation.setXPosition(100);
-        transformation.setYPosition(100);
-        transformation.setXRotation(0.785398f);
-        transformation.setYRotation(0.785398f);
-        transformation.setZRotation(0.785398f);
+        transformation.setXPosition(300);
+        transformation.setYPosition(300);
+        transformation.setXRotation(xRotation);
+        transformation.setYRotation(yRotation);
+        transformation.setZRotation(zRotation);
 
         for (float[] edge : transformation.applyTransformation(cubeMesh)) {
             canvas.drawLine(
