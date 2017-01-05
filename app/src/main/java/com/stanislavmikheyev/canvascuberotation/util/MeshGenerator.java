@@ -4,12 +4,10 @@ package com.stanislavmikheyev.canvascuberotation.util;
  * Created by stani on 1/4/2017.
  */
 
-public class CubeMesh {
+public class MeshGenerator {
 
-    private float[][] edges;
-
-    public CubeMesh() {
-        edges = new float[12][];
+    public static float[][] getCubeMesh() {
+        float[][] edges = new float[12][];
 
         edges[0] = new float[]{0, 0, 0, 1, 0, 0};
         edges[1] = new float[]{1, 0, 0, 1, 1, 0};
@@ -25,9 +23,7 @@ public class CubeMesh {
         edges[9] = new float[]{1, 0, 1, 1, 1, 1};
         edges[10] = new float[]{1, 1, 1, 0, 1, 1};
         edges[11] = new float[]{0, 1, 1, 0, 0, 1};
-    }
 
-    public float[][] getEdges() {
         return edges;
     }
 

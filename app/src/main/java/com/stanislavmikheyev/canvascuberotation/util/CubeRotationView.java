@@ -1,4 +1,4 @@
-package com.stanislavmikheyev.canvascuberotation;
+package com.stanislavmikheyev.canvascuberotation.util;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,17 +7,11 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.stanislavmikheyev.canvascuberotation.util.CubeMesh;
-
-/**
- * Created by stani on 1/4/2017.
- */
-
 public class CubeRotationView extends View {
 
     private Paint paint = new Paint();
-    private CubeMesh cubeMesh = new CubeMesh();
-    private float scale = 700;
+    private float[][] cubeMesh = MeshGenerator.getCubeMesh();
+    private Transformation transformation = new Transformation();
 
     public CubeRotationView(Context context) {
         super(context);
@@ -35,20 +29,30 @@ public class CubeRotationView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyleAttr) {
+        paint.setAntiAlias(true);
     }
 
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
+
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.CYAN);
         canvas.drawRect(0, 0, this.getWidth(), this.getHeight(), paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(3);
-        for (float[] edge : cubeMesh.getEdges()) {
+
+        transformation.setUniversalScale(150);
+        transformation.setXPosition(100);
+        transformation.setYPosition(100);
+        transformation.setXRotation(0.785398f);
+        transformation.setYRotation(0.785398f);
+        transformation.setZRotation(0.785398f);
+
+        for (float[] edge : transformation.applyTransformation(cubeMesh)) {
             canvas.drawLine(
-                    edge[0] * scale, edge[1] * scale,
-                    edge[3] * scale, edge[4] * scale,
+                    edge[0], edge[1],
+                    edge[3], edge[4],
                     paint);
         }
     }
