@@ -1,9 +1,5 @@
 package com.stanislavmikheyev.canvascuberotation.util;
 
-/**
- * Created by stani on 1/4/2017.
- */
-
 public class MeshGenerator {
 
     public static float[][] getCubeMesh() {

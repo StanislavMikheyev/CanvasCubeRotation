@@ -1,7 +1,7 @@
 package com.stanislavmikheyev.canvascuberotation.util;
 
 
-public class Transformation {
+public class Transformer {
 
     private float xScale = 1;
     private float yScale = 1;

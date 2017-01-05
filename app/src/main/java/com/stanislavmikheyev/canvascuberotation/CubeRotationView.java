@@ -8,40 +8,16 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.stanislavmikheyev.canvascuberotation.util.MeshGenerator;
-import com.stanislavmikheyev.canvascuberotation.util.Transformation;
+import com.stanislavmikheyev.canvascuberotation.util.Transformer;
 
 public class CubeRotationView extends View {
 
     private Paint paint = new Paint();
     private float[][] cubeMesh = MeshGenerator.getCubeMesh();
-    private Transformation transformation = new Transformation();
+    private Transformer transformer = new Transformer();
 
-    private float xRotation = 0;
-    private float yRotation = 0;
-    private float zRotation = 0;
-
-    public float getXRotation() {
-        return xRotation;
-    }
-
-    public void setXRotation(float xRotation) {
-        this.xRotation = xRotation;
-    }
-
-    public float getYRotation() {
-        return yRotation;
-    }
-
-    public void setYRotation(float yRotation) {
-        this.yRotation = yRotation;
-    }
-
-    public float getZRotation() {
-        return zRotation;
-    }
-
-    public void setZRotation(float zRotation) {
-        this.zRotation = zRotation;
+    public Transformer getTransformer() {
+        return transformer;
     }
 
     public CubeRotationView(Context context) {
@@ -61,26 +37,26 @@ public class CubeRotationView extends View {
 
     private void init(AttributeSet attrs, int defStyleAttr) {
         paint.setAntiAlias(true);
+        transformer.setUniversalScale(200);
+        transformer.setXRotation(0.785398f);
+        transformer.setYRotation(0.785398f);
+        transformer.setZRotation(0.785398f);
     }
 
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.CYAN);
+        paint.setColor(Color.WHITE);
         canvas.drawRect(0, 0, this.getWidth(), this.getHeight(), paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(3);
 
-        transformation.setUniversalScale(150);
-        transformation.setXPosition(200);
-        transformation.setYPosition(200);
-        transformation.setXRotation(xRotation);
-        transformation.setYRotation(yRotation);
-        transformation.setZRotation(zRotation);
+        transformer.setXPosition(this.getWidth() / 2);
+        transformer.setYPosition(this.getHeight() / 2);
 
-        float[][] transformedMesh = transformation.applyTransformation(cubeMesh);
+        float[][] transformedMesh = transformer.applyTransformation(cubeMesh);
 
         for (float[] edge : transformedMesh) {
             canvas.drawLine(

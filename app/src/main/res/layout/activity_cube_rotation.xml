@@ -33,37 +33,36 @@
             android:layout_weight="1"
             android:gravity="center_vertical">
 
-            <Button
-                android:text="Z-"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/button_y_minus"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/button_z_minus"
-                android:layout_weight="1"
-                android:onClick="zMinusClickListener" />
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-            <Button
-                android:text="Y-"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_y_minus"
-                android:layout_below="@+id/button_x_plus"
-                android:layout_toRightOf="@+id/button_x_plus"
-                android:layout_toEndOf="@+id/button_x_plus"
-                android:onClick="yMinusClickListener"
-                android:layout_weight="1" />
+                <Button
+                    android:text="Zoom In"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/zoom_in"
+                    android:onClick="zoomInClickListener" />
+
+                <Button
+                    android:text="Zoom Out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/zoom_out"
+                    android:onClick="zoomOutClickListener" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <Button
                     android:text="X+"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/button_x_plus"
                     android:layout_alignParentTop="true"
@@ -73,7 +72,7 @@
 
                 <Button
                     android:text="X-"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/button_x_minus"
                     android:layout_below="@+id/button_y_minus"
@@ -84,27 +83,97 @@
 
             </LinearLayout>
 
-            <Button
-                android:text="Y+"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_y_plus"
-                android:layout_below="@+id/button_x_plus"
-                android:layout_toLeftOf="@+id/button_x_plus"
-                android:layout_toStartOf="@+id/button_x_plus"
-                android:onClick="yPlusClickListener"
+                android:layout_height="match_parent"
+                android:layout_weight="1"><![CDATA[
+
+                android:onClick="zPlusClickListener" />
+
+                ]]>
+
+                <Button
+                    android:text="Y+"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_y_plus"
+                    android:layout_below="@+id/button_x_plus"
+                    android:layout_toLeftOf="@+id/button_x_plus"
+                    android:layout_toStartOf="@+id/button_x_plus"
+                    android:onClick="yPlusClickListener"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="Y-"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_y_minus"
+                    android:layout_below="@+id/button_x_plus"
+                    android:layout_toRightOf="@+id/button_x_plus"
+                    android:layout_toEndOf="@+id/button_x_plus"
+                    android:onClick="yMinusClickListener"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"><![CDATA[
+
                 android:layout_weight="1" />
 
-            <Button
-                android:text="Z+"
+                ]]>
+
+                <Button
+                    android:text="Z+"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/button_y_plus"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/button_z_plus"
+                    android:layout_weight="1"
+                    android:onClick="zPlusClickListener" />
+
+                <Button
+                    android:text="Z-"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/button_y_minus"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/button_z_minus"
+                    android:layout_weight="1"
+                    android:onClick="zMinusClickListener" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/button_y_plus"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/button_z_plus"
-                android:layout_weight="1"
-                android:onClick="zPlusClickListener" />
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/rotationStep"
+                    android:text="10"
+                    android:hint="Degree" />
+
+                <Button
+                    android:text="C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button"
+                    android:onClick="defaultPositionClickListener" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
