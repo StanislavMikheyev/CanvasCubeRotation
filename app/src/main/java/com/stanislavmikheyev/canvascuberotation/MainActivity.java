@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.stanislavmikheyev.canvascuberotation.util.Transformer;
 
-public class CubeRotationActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private CubeRotationView cubeRotationView;
     private Transformer cubeRotationViewTransformer;
@@ -18,7 +18,7 @@ public class CubeRotationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cube_rotation);
+        setContentView(R.layout.activity_main);
 
         cubeRotationView = (CubeRotationView) this.findViewById(R.id.cubeRotation);
         cubeRotationViewTransformer = cubeRotationView.getTransformer();
